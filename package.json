@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/boogie1208/node-plug.git"
+    "url": "https://github.com/boogie1208/node-plug"
   },
   "dependencies": {
     "vue": "^2.5.11"
