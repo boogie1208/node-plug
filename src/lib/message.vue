@@ -1,13 +1,19 @@
 <template>
   <div>
-    <div v-if="show">
-      <span>{{title}}</span>
-      {{message}}
+    <div v-if="show" :style="{'border': '1px solid #ccc'}">
+      <span>{{type}}</span>
+      <div>{{message}}</div>
     </div>
   </div>
 </template>
 
 <script>
+const typeMap = {
+  success: 'success',
+  info: 'info',
+  warning: 'warning',
+  error: 'error'
+};
 export default {
   props: {
     message: {
@@ -24,7 +30,7 @@ export default {
     },
     title: {
       type: String,
-      default: ''
+      default: '提示'
     },
     clostTime: {
       type: Number,
