@@ -1,4 +1,5 @@
 import message from './message.vue'
+let MessageConstructor = Vue.extend(message); // 写插件需要用到的
 // let MessageConstructor = Vue.extend(message); // 写插件需要用到的
 // let instance;
 // let instances = []; // 存放当前未close的message
@@ -55,9 +56,9 @@ const typeMap = {
 };
 const Message = {
   install(Vue, options) {
-    let MessageConstructor = Vue.extend(message); // 写插件需要用到的
+    // let MessageConstructor = Vue.extend(message); // 写插件需要用到的
     Vue.property.$message = message
-    // Vue.component(message.name, message)
+    Vue.component(message.name, message)
     function buildProps (args) {
       let props = {}
       props.message = args.message
