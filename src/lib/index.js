@@ -54,19 +54,19 @@ const typeMap = {
   error: 'error'
 };
 const Message = {
-  install(Vue, props) {
+  install(Vue, options) {
     let MessageConstructor = Vue.extend(message); // 写插件需要用到的
     Vue.property.$message = message
-    Vue.component(message.name, message)
-    if (typeof props === 'string') {
-      props = {
-        message: props
-      };
-    }
+    // Vue.component(message.name, message)
     function buildProps (args) {
       let props = {}
-      props.message = args[0]
+      props.message = args.message
       props.title = typeMap[props.type]
+      if (typeof options === 'string') {
+        props = {
+          message: options
+        };
+      }
       return props
     }
 
